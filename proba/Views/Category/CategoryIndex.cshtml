@@ -1,0 +1,26 @@
+﻿@model IEnumerable<proba.EntityFramework.Category>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@section admin
+{
+    <p>@Html.ActionLink("Létrehoz", "CreateCategory")</p>
+    <table style="width:100%">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td align="center">
+                    <strong>@Html.DisplayFor(modelItem => item.categoryname)</strong>
+                </td>
+                <td>
+                    @Html.ActionLink("Szerkeszt", "EditCategory", new { id = item.id })
+                </td>
+                <td>
+                    @Html.ActionLink("Töröl", "DeleteCategory", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,33 @@
+﻿@model proba.EntityFramework.Customer
+@{
+    ViewBag.Title = "Bejelentkezés";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section article
+{
+    <fieldset>
+        <legend style="text-align:center">Bejelentkezés</legend>
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <table id=logreg border=0 align=center cellspacing=20>
+                    <tr>
+                        <td>Név:</td>
+                        <td>@Html.TextBoxFor(user => user.username, new { @class = "text", type = "text", required = "required" }) </td>
+                        <td>@Html.ValidationMessageFor(user => user.username)</td>
+                    </tr>
+                    <tr>
+                        <td>Jelszó:</td>
+                        <td>@Html.PasswordFor(user => user.password, new { @class = "text", type = "password", required = "required" })</td>
+                        <td>@Html.ValidationMessageFor(user => user.password)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="submit" value="Bejelentkezés" />
+                        </td>
+                    </tr>
+                </table>
+            }
+    </fieldset>
+}

@@ -1,0 +1,29 @@
+﻿@model proba.EntityFramework.Category
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center">Kategória létrehozás</legend>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.categoryname)
+                @Html.ValidationMessageFor(model => model.categoryname)
+            </div>
+            <p>
+                <input type="submit" value="Létrehoz" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Vissza", "CategoryIndex","Category")
+    </div>
+}

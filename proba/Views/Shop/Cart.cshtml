@@ -1,0 +1,48 @@
+﻿@model IEnumerable<proba.EntityFramework.Cart>
+
+@{
+    ViewBag.Title = "Kosár";
+    decimal sum = 0;
+}
+@section article
+{
+<fieldset>
+    <legend style="text-align:center">Kosara</legend>
+    <table>
+        <tr>
+            <td>Gyártó</td>
+            <td>Ár</td>
+            <td>Méret</td>
+            <td>Vásárlás dátuma</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.items_list)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCart.Product.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCart.Product.size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.shoppingdate)
+                </td>
+                <td>
+                    @Html.ActionLink("X", "RemoveFromCart", "Shop", new { id = item.id }, null)
+                </td>
+            </tr>
+            sum += item.sum_price;
+        }
+        <tr>
+            <td colspan="5" style="text-align:center">Összesen: @sum Ft</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center">@Html.ActionLink("Vissza a Webshophoz", "Webshop", "Home")</td>
+            <td colspan="2" style="text-align:center">@Html.ActionLink("Fizetés", "Paying", "Shop")</td>
+        </tr>
+    </table>
+</fieldset>
+}

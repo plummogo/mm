@@ -1,0 +1,39 @@
+﻿@model IEnumerable<proba.EntityFramework.Producer>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <p>
+        @Html.ActionLink("Létrehozás", "CreateProducer","Producer")
+    </p>
+    <table>
+        <tr>
+            <th>
+                <p>Fékbetét, fékdob gyártó</p>
+            </th>
+            <th>
+                <p>Kategória(Fékdob, fékbetét)</p>
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.producer1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.categoryname)
+            </td>
+            <td>
+                @Html.ActionLink("Szerkeszt", "EditProducer", new { id=item.id }) |
+                @Html.ActionLink("Törlés", "DeleteProducer", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>
+}

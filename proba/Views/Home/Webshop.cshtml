@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Webshop";
+    if (@Session["LoggedId"] != null)
+    {
+
+        @section article
+        {
+            <h2 class="header2">Válassz a további kategóriákból: </h2><br />
+
+             <div style="text-align:center">
+                <img src="~/Content/webshop/brake_drum.jpg" width="200" height="200" /><br />
+                @Html.ActionLink("Fékdob katalógus", "BrakeDrum", "Shop")
+             </div>
+             <div style ="text-align:center">
+                <img src="~/Content/webshop/brake_lining.jpg" width="200" height="200" /><br />
+                @Html.ActionLink("Fékbetét katalógus", "BrakeLining", "Shop")
+            </div>
+        }
+    }
+    else
+    {
+        @section article
+        {
+            <h2 class="header2"> Nincs bejelentkezve!</h2>
+            @Html.ActionLink("Kattintson ide a bejelentkezéshez","Login")
+            <h2 class="header2">Nincs felhasználó fiókja?</h2>
+            @Html.ActionLink("Kattintson ide a regisztráláshoz", "Registration")
+        }
+    }
+}

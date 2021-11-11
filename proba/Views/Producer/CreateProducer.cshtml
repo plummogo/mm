@@ -1,0 +1,39 @@
+﻿@model proba.EntityFramework.Producer
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center">Termékgyártó létrehozása</legend>
+
+            <div class="editor-label">
+                <p>Fékbetét, fékdob gyártó</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.producer1)
+                @Html.ValidationMessageFor(model => model.producer1)
+            </div>
+
+            <div class="editor-label">
+                <p>Kategória</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Category.categoryname)
+                @Html.ValidationMessageFor(model => model.Category.categoryname)
+            </div>
+            <p>
+                <input type="submit" value="Létrehoz" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Vissza", "ProducerIndex","Producer")
+    </div>
+}

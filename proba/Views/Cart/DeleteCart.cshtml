@@ -1,0 +1,37 @@
+﻿@model proba.EntityFramework.Cart
+
+@{
+    ViewBag.Title = "DeleteCart";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <h3>Biztos törölni akarod?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend style="text-align:center">Kosár Törlés</legend>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.customerId)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.cartitems)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.items_list)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.producCartId)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.shoppingdate)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.sum_price)
+            </div>
+            <p><input type="submit" value="Törlés" /></p>
+        </fieldset>
+    }
+    @Html.ActionLink("Vissza", "CategoryIndex", "Category")
+}

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <div id="container">
+           <div id="top">
+               @if (Session["LoggedId"] == null)
+               {
+                   @Html.ActionLink("Regisztráció |", "Registration","Home")
+                   @Html.ActionLink(" Bejelentkezés", "Login","Home")
+               }
+               else
+               {
+                   @Session["LoggedName"] 
+                   @Html.ActionLink("| Kosár |", "CartContent", "Home")
+                   @Html.ActionLink(" Kijelentkezés", "Logout","Home")
+               }
+           </div>
+             <div id="header">
+                <img src="~/Content/images/top.png" width="300" height="240"/>
+            </div>
+            <div id="navigation">
+                <ul>
+                    @Html.ActionLink("Kezdőlap", "Index","Home")
+                    @Html.ActionLink("Bemutatkozás", "AboutUs", "Home")
+                    @Html.ActionLink("Kapcsolat", "Contact", "Home")
+                    @Html.ActionLink("Galéria", "Gallery", "Home")
+                    @Html.ActionLink("Webshop", "Webshop", "Home")
+                </ul>
+            </div>
+            <div id="article">
+                @RenderSection("article")
+            </div>
+            <div class="clear" id="footer">
+                <div align="center">
+                    <p> © 2016 <strong>Szilvási István Péter</strong> | E-mail: szilvasi.peter93@gmail.com</p>
+                </div>
+            </div>
+            </div>
+    </body>
+@RenderBody()
+</html>

@@ -1,0 +1,138 @@
+﻿@charset "utf-8";
+body {
+	font-family: Trebuchet MS;
+	font-size: small;
+	background-color: #E2E2E0;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #C0C2BF;
+	background-image: url(images/allback.jpg);
+	background-repeat: repeat-x;
+}
+#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-transform: uppercase;
+    background-color: #333;
+    text-align:center;
+}
+#indexIMG{
+    float:left;
+}
+#contactIMG{
+    width: 30%;
+    float: left;
+}
+#contactInfo{
+    width: 60%;
+    float:left;
+    min-height: 200px;
+}
+
+#navigation li {
+    float: left;
+}
+
+#navigation a{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.active {
+background-color:#3A5D71;
+}
+a:link {
+	color: #3A5D71;
+	text-decoration: none;
+}
+a:visited {
+	color: #663366;
+	text-decoration: none;
+}
+a:hover {
+	color: #EB422D;
+	text-decoration: underline;
+}
+a:active {
+	color: #32586F;
+	text-decoration: none;
+}
+#container {
+	width: 785px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+#article {
+	padding: 10px;
+	background-color: #FFFFFF;
+	background-image: url(images/mainback.jpg);
+	background-repeat: repeat-x;
+	min-height: 250px;
+	overflow: auto;
+	margin-bottom: 50px;
+    text-align:center;
+}
+#article li{
+    text-align:justify;
+}
+#footer {
+	padding: 10px;
+	height: 20px;
+	background-color: #FFFFFF;
+}
+.clear {
+	clear: both;
+	background-color: #FFFFFF;
+}
+#top {
+	height: 20px;
+    font-size: x-small;
+    float:right;
+}
+#header {
+	text-align: center;
+	height: 242px;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.header2 {
+	color: #3A5D71;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{
+    background-color:#f5f5f5
+}
+
+#logreg{
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 20px 20px;
+    width: 310px;
+    background: white;
+    border-radius: 3px;  
+}

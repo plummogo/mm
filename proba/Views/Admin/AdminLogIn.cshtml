@@ -1,0 +1,38 @@
+﻿@model proba.EntityFramework.Admin
+
+@{
+    ViewBag.Title = "AdminLogIn";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <h2 class="header2">Admin UI</h2>
+
+    <fieldset>
+    <legend style="text-align:center">Bejelentkezés</legend>
+        @using (Html.BeginForm("AdminLogIn", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            <table id=logreg>
+                <tr>
+                    <td>Név:</td>
+                    <td> @Html.TextBoxFor(admin => admin.user_name) </td>
+                    <td>@Html.ValidationMessageFor(admin => admin.user_name)</td>
+                </tr>
+                <tr>
+                    <td>Jelszó:</td>
+                    <td>@Html.PasswordFor(admin => admin.password)</td>
+                    <td>@Html.ValidationMessageFor(admin => admin.password)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Bejelentkezés" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </fieldset>
+
+}

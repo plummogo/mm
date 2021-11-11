@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f3ad1e79293e46dcbdf0f5fa5a94b55c" Name="Diagram1">
+        <EntityTypeShape EntityType="MMEntitiesModel.Admin" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.CarName" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.CarsProducers" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.Cart" Width="1.5" PointX="12" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.CarType" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.Category" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.Customer" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.Producer" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.Product" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MMEntitiesModel.ProductCart" Width="1.5" PointX="9.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="MMEntitiesModel.FK_CarType_CarName" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_CarsProducers_CarType" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_CarsProducers_Producer" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_Product_CarsProducers" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_Cart_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_Cart_ProductCart" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_Producer_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="MMEntitiesModel.FK_ProductCart_Product" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

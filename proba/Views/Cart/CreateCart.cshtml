@@ -1,0 +1,72 @@
+﻿@model proba.EntityFramework.Cart
+
+@{
+    ViewBag.Title = "CreateCart";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center">Létrehoz</legend>
+
+            <div class="editor-label">
+                <p>Vevő id</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.customerId)
+                @Html.ValidationMessageFor(model => model.customerId)
+            </div>
+
+            <div class="editor-label">
+                <p>Kapcsoló tábla id</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.producCartId)
+                @Html.ValidationMessageFor(model => model.producCartId)
+            </div>
+
+            <div class="editor-label">
+                <p>Össz ár</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.sum_price)
+                @Html.ValidationMessageFor(model => model.sum_price)
+            </div>
+
+            <div class="editor-label">
+                <p>Össz kosárelemek</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cartitems)
+                @Html.ValidationMessageFor(model => model.cartitems)
+            </div>
+
+            <div class="editor-label">
+                <p>Kosár tartalma</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.items_list)
+                @Html.ValidationMessageFor(model => model.items_list)
+            </div>
+
+            <div class="editor-label">
+                <p>Vásárlás dátuma</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.shoppingdate)
+                @Html.ValidationMessageFor(model => model.shoppingdate)
+            </div>
+
+            <p>
+                <input type="submit" value="Létrehoz" />
+            </p>
+        </fieldset>
+    }
+    <div>
+        @Html.ActionLink("Vissza", "CartIndex","Cart")
+    </div>
+}

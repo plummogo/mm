@@ -1,0 +1,45 @@
+﻿@model proba.EntityFramework.Customer
+
+@{
+    ViewBag.Title = "Regisztráció";
+}
+
+@section article
+{
+    <p>Az űrlap kitöltésével Ön regisztrált felhasználó lesz a Mazsik Műhely honlapján.</p>
+    <h2 class="header2">Miért érdemes regisztrálnom?</h2>
+    <p>Egyszerű: igénybe veheti új webáruházunkat!</p>
+    @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <table id=logreg border=0 align=center cellspacing=20>
+            <tr>
+                <td style="text-align:right">Név:</td>
+                <td style="text-align:left">@Html.TextBoxFor(user => user.name)</td>
+                <td>@Html.ValidationMessageFor(user => user.name)</td>
+            </tr>
+            <tr>
+                <td style="text-align:right">E-mail cím:</td>
+                <td style="text-align:left">@Html.TextBoxFor(user => user.email)</td>
+                <td>@Html.ValidationMessageFor(user => user.email)</td>
+            </tr>
+            <tr>
+                <td style ="text-align:right">Felhasználó név:</td>
+                <td style="text-align:left">@Html.TextBoxFor(user => user.username)</td>
+                <td>@Html.ValidationMessageFor(user => user.username)</td>
+            </tr>
+            <tr>
+                <td style="text-align:right">Jelszó:</td>
+                <td style="text-align:left">@Html.PasswordFor(user => user.password)</td>
+                <td>@Html.ValidationMessageFor(user => user.password)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align:left">
+                    <input type="submit" value="Regisztráció" />
+                </td>
+            </tr>
+        </table>
+    }
+}

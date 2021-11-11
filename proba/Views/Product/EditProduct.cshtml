@@ -1,0 +1,87 @@
+﻿@model proba.EntityFramework.Product
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center">Termékek</legend>
+
+            @Html.HiddenFor(model => model.id)
+            @Html.HiddenFor(model => model.carsproducersid)
+            <div class="editor-label">
+                <p>Autó típus</p>
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.CarsProducers.CarType.id)
+                @Html.EditorFor(model => model.CarsProducers.CarType.cartype1)
+                @Html.ValidationMessageFor(model => model.CarsProducers.CarType.cartype1)
+            </div>
+            
+            <div class="editor-label">
+                <p>Autó gyártó</p>
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.CarsProducers.CarType.carnameID)
+                @Html.EditorFor(model => model.CarsProducers.CarType.CarName.carname1)
+                @Html.ValidationMessageFor(model => model.CarsProducers.CarType.CarName.carname1)
+            </div>
+
+            <div class="editor-label">
+                <p>Gyártó</p>
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.CarsProducers.Producer.id)
+                @Html.EditorFor(model => model.CarsProducers.Producer.producer1)
+                @Html.ValidationMessageFor(model => model.CarsProducers.Producer.producer1)
+            </div>
+
+            <div class="editor-label">
+                <p>Kategória</p>
+            </div>
+            <div class="editor-field">
+                @Html.HiddenFor(model => model.CarsProducers.Producer.Category.id)
+                @Html.EditorFor(model => model.CarsProducers.Producer.Category.categoryname)
+                @Html.ValidationMessageFor(model => model.CarsProducers.Producer.Category.categoryname)
+            </div>
+
+            <div class="editor-label">
+                <p>Méret</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.size)
+                @Html.ValidationMessageFor(model => model.size)
+            </div>
+
+            <div class="editor-label">
+                <p>Raktáron</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.instorage)
+                @Html.ValidationMessageFor(model => model.instorage)
+            </div>
+
+            <div class="editor-label">
+                <p>Ár</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.price)
+                @Html.ValidationMessageFor(model => model.price)
+            </div>
+
+            <p>
+                <input type="submit" value="Szerkeszt" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Vissza", "ProductIndex")
+    </div>
+}

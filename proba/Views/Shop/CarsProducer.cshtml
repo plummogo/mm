@@ -1,0 +1,36 @@
+﻿@model IEnumerable<proba.EntityFramework.CarsProducers>
+
+@{
+    ViewBag.Title = "CarsProducer";
+}
+@section article
+{
+    <h2 class="header2">Termékek: </h2>
+    @using (@Html.BeginForm("CarsProducer", "Shop", FormMethod.Post))
+    {
+        <table>   
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <select>
+                            <option>@Html.DisplayFor(modelItem => item.CarType.CarName.carname1)</option>
+                        </select>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarType.cartype1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producer.Category.categoryname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Producer.producer1)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Információ", "Product", new { id = item.id })
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+}

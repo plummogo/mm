@@ -1,0 +1,65 @@
+﻿@model IEnumerable<proba.EntityFramework.Cart>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@section admin
+{
+
+    <p>
+        @Html.ActionLink("Létrehoz", "CreateCart")
+    </p>
+    <table>
+        <tr>
+            <th>
+                <p>Vevő neve</p>
+            </th>
+            <th>
+                <p>Kapcsoló tábla id</p>
+            </th>
+            <th>
+                <p>Össz ár</p>
+            </th>
+            <th>
+                <p>Össz kosárelemek</p>
+            </th>
+            <th>
+                <p>Kosár tartalma</p>
+            </th>
+            <th>
+                <p>Vásárlás dátuma</p>
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producCartId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sum_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cartitems)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.items_list)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.shoppingdate)
+            </td>
+            <td>
+                @Html.ActionLink("Szerkeszt", "EditCart", new { id=item.id }) |
+                @Html.ActionLink("Törlés", "DeleteCart", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>
+}

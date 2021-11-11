@@ -1,0 +1,44 @@
+﻿@model proba.EntityFramework.CarType
+
+@{
+    ViewBag.Title = "CreateCarType";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <h2>Létrehoz</h2>
+
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center">Típus létrehozása</legend>
+
+            <div class="editor-label">
+                <p>Típus</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cartype1)
+                @Html.ValidationMessageFor(model => model.cartype1)
+            </div>
+
+            <div class="editor-label">
+                <p>Gyártó</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CarName.carname1)
+                @Html.ValidationMessageFor(model => model.CarName.carname1)
+            </div>
+
+            <p>
+                <input type="submit" value="Létrehoz" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Vissza", "CarTypeIndex","CarType")
+    </div>
+}

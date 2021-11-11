@@ -1,0 +1,33 @@
+﻿@model proba.EntityFramework.CarName
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend style="text-align:center    ">Gyártó létrehozása</legend>
+
+            <div class="editor-label">
+                <p>Gyártó</p>
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.carname1)
+                @Html.ValidationMessageFor(model => model.carname1)
+            </div>
+
+            <p>
+                <input type="submit" value="Létrehoz" />
+            </p>
+        </fieldset>
+    }
+
+    <div>
+        @Html.ActionLink("Vissza", "CarNameIndex","CarName")
+    </div>
+}

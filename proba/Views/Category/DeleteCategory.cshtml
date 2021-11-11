@@ -1,0 +1,21 @@
+﻿@model proba.EntityFramework.Category
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <h3>Biztosan törölni akarod?</h3>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend style="text-align:center">Kategória Törlés</legend>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.categoryname)
+                </div>
+                <p><input type="submit" value="Törlés" /></p>
+        </fieldset>      
+    }
+    @Html.ActionLink("Vissza", "CategoryIndex", "Category")
+}

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<proba.EntityFramework.CarType>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewBag.Title = "Admin";
+}
+@section admin
+{
+    <p>
+        @Html.ActionLink("Létrehoz", "CreateCarType","CarType")
+    </p>
+    <table>
+        <tr>
+            <th>
+                Típus
+            </th>
+            <th>
+                Gyártó
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cartype1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarName.carname1)
+            </td>
+            <td>
+                @Html.ActionLink("Szerkeszt", "EditCarType", new { id=item.id }) |
+                @Html.ActionLink("Töröl", "DeleteCarType", new { id=item.id })
+            </td>
+        </tr>
+    }
+    </table>
+}

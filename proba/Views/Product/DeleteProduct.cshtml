@@ -1,0 +1,41 @@
+﻿@model proba.EntityFramework.Product
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section admin
+{
+    <h3>Biztos törölni akarod?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <fieldset>
+        <legend style="text-align:center">Product</legend>
+
+        <div class="display-label">
+            <p>Méret</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.size)
+        </div>
+
+        <div class="display-label">
+            <p>Raktáron</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.instorage)
+        </div>
+
+        <div class="display-label">
+            <p>Ár</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.price)
+        </div>
+
+        <p><input type="submit" value="Törlés" /></p>
+    </fieldset>
+            @Html.ActionLink("Vissza", "ProductIndex")
+    }
+}

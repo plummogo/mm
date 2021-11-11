@@ -1,0 +1,33 @@
+﻿@model proba.EntityFramework.Product
+
+@{
+    ViewBag.Title = "Termék infó";
+}
+
+@section article
+{
+    <h2 class="header2">Termék info:</h2>
+
+    <fieldset>
+        @using (@Html.BeginForm("Product", "Shop", FormMethod.Post))
+        {
+            <legend></legend>
+        
+            <div class="display-label">
+                <p>Méret(mm): @Html.DisplayFor(model => model.size)</p>
+            </div>
+
+            <div class="display-label">
+                <p>Raktáron: @Html.DisplayFor(model => model.instorage)</p>
+            </div>
+
+            <div class="display-label">
+                <p>Ár(Ft): @Html.DisplayFor(model => model.price)</p>
+            </div>
+            <div class="display-label">
+                @Html.ActionLink("Kosárba", "ProductCart", new { id = @Html.DisplayFor(model => model.id) }, null)
+                @Html.ActionLink("Vissza", "Webshop", "Home")
+            </div>
+        }
+        </fieldset>
+}

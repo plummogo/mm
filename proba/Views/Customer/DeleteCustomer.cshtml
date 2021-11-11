@@ -1,0 +1,76 @@
+﻿@model proba.EntityFramework.Customer
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@section admin
+{
+    <h3>Biztosan törölni akarod?</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <fieldset>
+        <legend style="text-align:center">Vásárlók</legend>
+
+        <div class="display-label">
+            <p>Teljes név</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.name)
+        </div>
+
+        <div class="display-label">
+            <p>E-mail cím</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.email)
+        </div>
+
+        <div class="display-label">
+            <p>Születési dátum</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.dateofbirth)
+        </div>
+
+        <div class="display-label">
+        <p>Teljes lakcím</p>    
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.address)
+        </div>
+
+        <div class="display-label">
+            <p>Felhasználó név</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.username)
+        </div>
+
+        <div class="display-label">
+            <p>Jelszó</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.password)
+        </div>
+
+        <div class="display-label">
+            <p>Fizetett felhasználó-e</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.paid)
+        </div>
+
+        <div class="display-label">
+            <p>Ár</p>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.price)
+        </div>
+        <p><input type="submit" value="Törlés" /></p>
+</fieldset>
+    }
+            @Html.ActionLink("Vissza", "CustomerIndex")
+}

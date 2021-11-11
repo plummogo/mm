@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="container">
+        <div id="top">
+            @if (Session["LoggedAdminId"] != null)
+            {
+                @Session["LoggedAdminName"]
+                @Html.ActionLink(" Kijelentkezés", "Logout", "Admin")
+            }
+        </div>
+        <div id="header">
+            <img src="~/Content/images/top.png" width="300" height="240" />
+        </div>
+        <div id="navigation">
+            @if (Session["LoggedAdminId"] != null)
+            {
+                <ul>                
+                    @Html.ActionLink("Kategória", "Category", "Admin")
+                    @Html.ActionLink("Termék", "Product","Admin")
+                    @Html.ActionLink("Felhasználók", "Customer","Admin")
+                    @Html.ActionLink("Autó fajták", "CarName", "Admin")
+                    @Html.ActionLink("Autótípusok", "CarType", "Admin")
+                    @Html.ActionLink("Fékbetét és fékdob gyártók", "Producer", "Admin")
+                </ul>
+            }
+            else
+            {
+                <ul>
+                    @Html.ActionLink("Jelentkezz be!","AdminLogIn","Admin")
+                </ul>
+            }
+        </div>
+        <div id="article">
+            @RenderSection("admin")
+        </div>
+        <div class="clear" id="footer">
+            <div align="center">
+                <p> © 2016 <strong>Szilvási István Péter</strong> | E-mail: szilvasi.peter93@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+@RenderBody()
+</html>
